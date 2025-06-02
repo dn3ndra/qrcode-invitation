@@ -1,77 +1,819 @@
+/* Mobile-first responsive design - FIXED VERSION */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 15px;
+  line-height: 1.5;
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+/* Typography - ENLARGED for mobile */
+h1, h2, h3 {
+  color: #333;
+  margin: 25px 0 20px 0;
+  font-weight: 600;
+  text-align: center;
+}
+
+h2 {
+  font-size: 28px;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+h3 {
+  font-size: 24px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 8px;
+}
+
+/* Override existing navbar styles with more responsive approach */
+.navbar-container {
+  background: #fff !important;
+  padding: 15px !important;
+  margin: -15px -15px 25px -15px !important;
+  border-bottom: 1px solid #ddd !important;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.navbar-brand {
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+  text-align: center;
+}
+
+.navbar-menu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #007bff !important;
+  text-decoration: none !important;
+  padding: 12px 16px !important;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  min-height: 44px;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.nav-link:hover {
+  background: #f8f9fa !important;
+  text-decoration: none !important;
+}
+
+.nav-icon {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+.nav-text {
+  white-space: nowrap;
+}
+
+/* Tablet styles */
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 12px !important;
+    margin: -10px -10px 20px -10px !important;
+    gap: 12px;
   }
   
-  h2, h3 {
-    color: #333;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 5px;
-    margin-top: 2rem;
+  .navbar-brand {
+    font-size: 16px;
+  }
+  
+  .navbar-menu {
+    gap: 6px;
+  }
+  
+  .nav-link {
+    font-size: 15px !important;
+    padding: 10px 14px !important;
+    min-height: 40px;
+  }
+  
+  .nav-icon {
+    font-size: 14px;
+  }
+}
+
+/* Mobile styles */
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 10px !important;
+    margin: -8px -8px 15px -8px !important;
+    gap: 10px;
+  }
+  
+  .navbar-brand {
+    font-size: 14px;
+  }
+  
+  .navbar-menu {
+    justify-content: space-between;
+    gap: 4px;
+  }
+  
+  .nav-link {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 12px !important;
+    padding: 8px 6px !important;
+    min-height: 36px;
+    text-align: center;
+    min-width: 60px;
+  }
+  
+  .nav-icon {
+    font-size: 16px;
+  }
+  
+  .nav-text {
+    font-size: 11px;
+    line-height: 1.1;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 320px) {
+  .navbar-menu {
+    gap: 2px;
+  }
+  
+  .nav-link {
+    padding: 6px 4px !important;
+    min-width: 50px;
+  }
+  
+  .nav-text {
+    font-size: 10px;
+  }
+  
+  .nav-icon {
+    font-size: 14px;
+  }
+}
+
+/* Forms - MUCH LARGER for mobile */
+form {
+  background: #fff;
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  margin: 25px 0;
+  max-width: none;
+  border: none;
+}
+
+/* Labels - LARGER text */
+label {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* Input fields - MUCH LARGER */
+input[type="text"], 
+input[type="password"], 
+input[type="email"],
+select {
+  width: 100%;
+  padding: 18px 16px;
+  margin: 10px 0 20px 0;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 18px; /* INCREASED from 16px */
+  background: #fff;
+  transition: border-color 0.2s;
+  min-height: 56px; /* Large touch target */
+  line-height: 1.4;
+}
+
+input[type="text"]:focus, 
+input[type="password"]:focus, 
+input[type="email"]:focus,
+select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 4px rgba(0,123,255,0.15);
+}
+
+/* Buttons - MUCH LARGER */
+button, 
+input[type="submit"] {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 18px 24px;
+  border-radius: 8px;
+  font-size: 18px; /* INCREASED */
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin: 15px 0;
+  transition: background-color 0.2s;
+  min-height: 56px; /* Large touch target */
+  line-height: 1.2;
+}
+
+button:hover, 
+input[type="submit"]:hover {
+  background: #0056b3;
+}
+
+button:active,
+input[type="submit"]:active {
+  transform: translateY(1px);
+}
+
+/* Secondary buttons */
+button[style*="background: #6c757d"],
+.btn-secondary {
+  background: #6c757d !important;
+}
+
+button[style*="background: #6c757d"]:hover {
+  background: #545b62 !important;
+}
+
+/* Mobile Table Simple Format - UPDATED */
+@media (max-width: 768px) {
+  /* Keep table as table, just make it responsive with horizontal scroll */
+  .table-container, 
+  div[style*="overflow-x: auto"] {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
   }
   
   table {
+    min-width: 600px; /* Minimum width untuk scroll */
     width: 100%;
+    font-size: 12px; /* Font lebih kecil untuk mobile */
     border-collapse: collapse;
-    margin: 1rem 0;
-    background-color: #fff;
-  }
-  
-  table th, table td {
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    text-align: left;
   }
   
   table th {
-    background-color: #f0f0f0;
+    padding: 8px 4px !important;
+    font-size: 11px !important;
+    background: #f8f9fa;
+    font-weight: 600;
+    text-align: center;
+    border: 1px solid #ddd;
+    white-space: nowrap;
+  }
+  
+  table td {
+    padding: 10px 6px !important;
+    font-size: 12px !important;
+    vertical-align: middle;
+    text-align: center;
+    border: 1px solid #ddd;
+  }
+  
+  /* Kolom nama lebih lebar dan rata kiri */
+  table th:first-child,
+  table td:first-child {
+    min-width: 120px;
+    text-align: left !important;
+    font-weight: 500;
+    padding-left: 8px !important;
+  }
+  
+  /* Status badges lebih kecil dan kompak */
+  .status-badge {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+    border-radius: 12px !important;
+    display: inline-block;
+    min-width: 60px;
+    text-align: center;
+    white-space: nowrap;
+  }
+  
+  /* Update form lebih kompak */
+  .update-form {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    min-width: 100px;
+  }
+  
+  .update-form select {
+    width: 100% !important;
+    padding: 6px 4px !important;
+    font-size: 11px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    margin: 0 !important;
+    min-height: 32px !important;
+    background: #fff;
+  }
+  
+  .update-form button {
+    width: 100% !important;
+    padding: 6px 8px !important;
+    font-size: 11px !important;
+    margin: 0 !important;
+    min-height: 32px !important;
+    border-radius: 4px !important;
+    white-space: nowrap;
+  }
+  
+  /* Kolom waktu dan aksi lebih sempit */
+  table th:nth-child(4),
+  table td:nth-child(4) {
+    min-width: 90px;
+    font-size: 10px !important;
+  }
+  
+  table th:nth-child(5),
+  table td:nth-child(5) {
+    min-width: 110px;
+    font-size: 10px !important;
+  }
+  
+  /* Status QR dan Kehadiran kolom */
+  table th:nth-child(2),
+  table td:nth-child(2),
+  table th:nth-child(3),
+  table td:nth-child(3) {
+    min-width: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  table {
+    min-width: 550px; /* Lebih sempit di layar kecil */
+    font-size: 11px;
+  }
+  
+  table th {
+    padding: 6px 3px !important;
+    font-size: 10px !important;
+  }
+  
+  table td {
+    padding: 8px 4px !important;
+    font-size: 11px !important;
+  }
+  
+  table th:first-child,
+  table td:first-child {
+    min-width: 100px;
+  }
+  
+  .status-badge {
+    padding: 3px 6px !important;
+    font-size: 9px !important;
+    min-width: 50px;
+  }
+  
+  .update-form select {
+    font-size: 10px !important;
+    padding: 4px 3px !important;
+    min-height: 28px !important;
+  }
+  
+  .update-form button {
+    font-size: 10px !important;
+    padding: 4px 6px !important;
+    min-height: 28px !important;
+  }
+  
+  table th:nth-child(4),
+  table td:nth-child(4) {
+    min-width: 80px;
+  }
+  
+  table th:nth-child(5),
+  table td:nth-child(5) {
+    min-width: 100px;
+  }
+}
+
+/* Keep desktop table normal */
+@media (min-width: 769px) {
+  table {
+    display: table !important;
+  }
+  
+  table thead {
+    display: table-header-group !important;
+  }
+  
+  table tbody {
+    display: table-row-group !important;
+  }
+  
+  table tr {
+    display: table-row !important;
+  }
+  
+  table td {
+    display: table-cell !important;
+  }
+}
+
+/* Status badges - LARGER */
+.status-badge {
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 14px; /* INCREASED */
+  font-weight: 500;
+  display: inline-block;
+  text-align: center;
+  min-width: 80px;
+  line-height: 1.3;
+}
+
+.status-hadir { 
+  background: #d1ecf1; 
+  color: #0c5460; 
+}
+
+.status-diwakilkan { 
+  background: #fff3cd; 
+  color: #856404; 
+}
+
+.status-belum { 
+  background: #f8d7da; 
+  color: #721c24; 
+}
+
+/* Stats cards - LARGER */
+.stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin: 25px 0;
+}
+
+.stat-card {
+  background: #fff;
+  padding: 24px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border: none;
+}
+
+.stat-number {
+  font-size: 32px; /* INCREASED */
+  font-weight: 700;
+  color: #007bff;
+  display: block;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 14px; /* INCREASED */
+  color: #6c757d;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+/* Search container - LARGER */
+.search-container {
+  background: #fff;
+  padding: 25px;
+  margin: 25px 0;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  border: none;
+}
+
+.search-container h3 {
+  font-size: 22px;
+  margin-bottom: 15px;
+}
+
+.search-container input[type="text"] {
+  margin-bottom: 15px;
+}
+
+.search-container button {
+  width: auto;
+  min-width: 100px;
+  margin: 8px 8px 8px 0;
+  padding: 16px 20px;
+  font-size: 16px;
+}
+
+/* Messages - LARGER */
+.message, .error, .success {
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 16px; /* INCREASED */
+  line-height: 1.4;
+}
+
+.success, .message.success {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.error, .message.error {
+  background: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Update forms in tables - LARGER */
+.update-form {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  border: none;
+  flex-wrap: wrap;
+}
+
+.update-form select {
+  min-width: 140px;
+  padding: 10px 8px;
+  font-size: 14px;
+  margin: 0;
+  min-height: 40px;
+}
+
+.update-form button {
+  width: auto;
+  padding: 10px 16px;
+  font-size: 14px;
+  margin: 0;
+  min-height: 40px;
+}
+
+/* QR Code specific styles - IMPROVED */
+#qrcode-wrapper {
+  display: flex;
+  align-items: center;
+  padding: 25px;
+  background: white;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  border-radius: 12px;
+  margin: 25px auto;
+  max-width: 380px;
+}
+
+#qrcode {
+  flex-shrink: 0;
+  margin-right: 25px;
+}
+
+#qr-text {
+  font-family: inherit;
+  font-size: 16px; /* INCREASED */
+  color: #333;
+  line-height: 1.5;
+}
+
+#qr-text .bold {
+  font-weight: 600;
+  font-size: 18px; /* INCREASED */
+}
+
+#qr-text .italic {
+  font-style: italic;
+  font-size: 14px; /* INCREASED */
+  color: #666;
+}
+
+/* Scanner specific styles - MUCH IMPROVED */
+#reader {
+  margin: 25px auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  max-width: 100%;
+  min-height: 300px; /* Ensure minimum height */
+}
+
+/* Scanner status text - LARGER */
+#status {
+  font-size: 18px; /* INCREASED */
+  font-weight: 500;
+  color: #333;
+  text-align: center;
+  margin: 20px 0;
+  padding: 15px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Mobile optimizations - SIGNIFICANTLY IMPROVED */
+@media (max-width: 768px) {
+  body {
+    padding: 10px;
+    font-size: 16px; /* Keep 16px base */
+  }
+  
+  h2 {
+    font-size: 26px; /* Still large */
+  }
+  
+  h3 {
+    font-size: 22px; /* Still large */
   }
   
   form {
-    margin: 1rem 0;
-    background-color: #fff;
-    padding: 1rem;
-    border: 1px solid #ddd;
-    max-width: 400px;
+    padding: 25px 20px; /* Still generous padding */
+    margin: 20px 0;
   }
   
-  input[type="text"], input[type="password"], input[type="submit"], button {
-    padding: 8px;
+  /* Keep inputs large on mobile */
+  input[type="text"], 
+  input[type="password"], 
+  input[type="email"],
+  select {
+    font-size: 18px; /* KEEP LARGE */
+    padding: 18px 16px;
+    min-height: 56px;
+  }
+  
+  /* Keep buttons large on mobile */
+  button, 
+  input[type="submit"] {
+    font-size: 18px; /* KEEP LARGE */
+    padding: 18px 24px;
+    min-height: 56px;
+  }
+  
+  .stats-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  
+  .stat-card {
+    padding: 20px 16px;
+  }
+  
+  .stat-number {
+    font-size: 28px; /* Still prominent */
+  }
+  
+  .navbar a, div[style*="background:#f0f0f0"] a {
+    font-size: 15px !important; /* Readable */
+    padding: 10px 14px !important;
+    min-height: 44px;
+  }
+  
+  .search-container button {
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    box-sizing: border-box;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin: 8px 0;
   }
   
-  button, input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    cursor: pointer;
+  #qrcode-wrapper {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+    max-width: 95%;
   }
   
-  button:hover, input[type="submit"]:hover {
-    background-color: #45a049;
+  #qrcode {
+    margin: 0 0 20px 0;
   }
   
-  .navbar {
-    background-color: #eee;
-    padding: 10px;
-    margin: 0 -1rem 1rem -1rem;
-    border-bottom: 1px solid #ccc;
+  /* Scanner improvements for mobile */
+  #reader {
+    min-height: 250px;
+    margin: 20px auto;
   }
   
-  .navbar a {
-    margin-right: 15px;
-    text-decoration: none;
-    color: #333;
+  #status {
+    font-size: 17px; /* Keep readable */
+    margin: 15px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 8px;
   }
   
-  .navbar a:hover {
-    text-decoration: underline;
+  .stats-container {
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
   
+  .navbar, div[style*="background:#f0f0f0"] {
+    padding: 15px 8px !important;
+    margin: -8px -8px 20px -8px !important;
+  }
+  
+  .navbar a, div[style*="background:#f0f0f0"] a {
+    font-size: 14px !important;
+    padding: 8px 12px !important;
+    margin-right: 6px !important;
+  }
+  
+  form {
+    padding: 20px 15px;
+  }
+  
+  /* STILL keep inputs large even on very small screens */
+  input[type="text"], 
+  input[type="password"], 
+  input[type="email"],
+  select {
+    font-size: 17px; /* Slightly smaller but still large */
+    padding: 16px 14px;
+    min-height: 52px;
+  }
+  
+  button, 
+  input[type="submit"] {
+    font-size: 17px; /* Slightly smaller but still large */
+    padding: 16px 20px;
+    min-height: 52px;
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  table th, table td {
+    border: 2px solid #000;
+  }
+  
+  .status-badge {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Focus improvements for better accessibility */
+button:focus,
+input:focus,
+select:focus,
+a:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Ensure text is always readable */
+@media (max-width: 320px) {
+  html {
+    font-size: 15px;
+  }
+  
+  /* Even on very small screens, keep inputs usable */
+  input[type="text"], 
+  input[type="password"], 
+  input[type="email"],
+  select {
+    font-size: 16px; /* Never go below 16px on iOS */
+    min-height: 48px;
+  }
+  
+  button, 
+  input[type="submit"] {
+    font-size: 16px;
+    min-height: 48px;
+  }
+}

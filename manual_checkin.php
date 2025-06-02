@@ -1,7 +1,7 @@
 <?php
 include 'auth.php';
 include 'navbar.php';
-$mysqli = new mysqli("localhost", "root", "", "wedding_guestbook");
+require 'config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
